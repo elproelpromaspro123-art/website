@@ -207,27 +207,48 @@ document.addEventListener('DOMContentLoaded', function() {
     const feedbackModal = document.getElementById('feedbackModal');
     const feedbackBtnFooter = document.getElementById('feedbackBtnFooter');
     const floatingFeedbackBtn = document.getElementById('floatingFeedbackBtn');
+    const feedbackNavBtn = document.getElementById('feedbackNavBtn');
     const closeFeedbackBtn = document.getElementById('closeFeedbackBtn');
     const cancelFeedbackBtn = document.getElementById('cancelFeedbackBtn');
     const feedbackForm = document.getElementById('feedbackForm');
     const submitFeedbackBtn = document.getElementById('submitFeedbackBtn');
     const feedbackStatus = document.getElementById('feedbackStatus');
+    const feedbackMessage = document.getElementById('feedbackMessage');
+    const charCount = document.getElementById('charCount');
 
     // Discord Webhook URL
     const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1469066793669759098/DtBxho4OqUjkoREsZofMIZu0gCif0EtOwOBzw4WYkTes6bCtX5kAWY92kLHymSpglCKu';
 
+    // Character counter
+    if (feedbackMessage && charCount) {
+        feedbackMessage.addEventListener('input', function() {
+            const len = this.value.length;
+            charCount.textContent = len;
+            if (len > 500) {
+                charCount.style.color = '#ef4444';
+            } else {
+                charCount.style.color = '';
+            }
+        });
+    }
+
     function openFeedbackModal() {
         if (feedbackModal) {
             feedbackModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
         }
     }
 
     function closeFeedbackModal() {
         if (feedbackModal) {
             feedbackModal.classList.add('hidden');
-            feedbackForm.reset();
-            feedbackStatus.textContent = '';
-            feedbackStatus.className = 'feedback-status';
+            document.body.style.overflow = '';
+            if (feedbackForm) feedbackForm.reset();
+            if (charCount) charCount.textContent = '0';
+            if (feedbackStatus) {
+                feedbackStatus.textContent = '';
+                feedbackStatus.className = 'feedback-status';
+            }
         }
     }
 
@@ -243,7 +264,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const message = document.getElementById('feedbackMessage').value.trim();
         const email = document.getElementById('feedbackEmail').value.trim();
-        const type = document.getElementById('feedbackType').value;
+        const typeRadio = document.querySelector('input[name="feedbackType"]:checked');
+        const type = typeRadio ? typeRadio.value : 'general';
 
         if (!message) {
             showFeedbackStatus('Please enter your message', 'error');
@@ -311,6 +333,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (floatingFeedbackBtn) {
         floatingFeedbackBtn.addEventListener('click', openFeedbackModal);
+    }
+
+    if (feedbackNavBtn) {
+        feedbackNavBtn.addEventListener('click', openFeedbackModal);
     }
 
     if (closeFeedbackBtn) {

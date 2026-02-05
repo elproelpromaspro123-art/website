@@ -40,6 +40,10 @@
                     <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
                         <span class="theme-icon" id="themeIcon">🌙</span>
                     </button>
+                    <button class="feedback-nav-btn" id="feedbackNavBtn" title="Send Feedback">
+                        <span class="feedback-nav-icon">💬</span>
+                        <span class="feedback-nav-text" data-i18n="nav_feedback">Feedback</span>
+                    </button>
                 </div>
                 <a href="#download" class="nav-btn-primary" data-i18n="nav_download">Download Free</a>
             </div>
@@ -597,35 +601,84 @@
     <div id="feedbackModal" class="feedback-modal-overlay hidden">
         <div class="feedback-modal">
             <div class="feedback-modal-header">
-                <h2>💬 Send us your feedback</h2>
-                <button class="feedback-modal-close" id="closeFeedbackBtn">✕</button>
+                <div class="feedback-header-icon">💬</div>
+                <div class="feedback-header-content">
+                    <h2 data-i18n="feedback_title">Send us your feedback</h2>
+                    <p data-i18n="feedback_subtitle">We'd love to hear from you</p>
+                </div>
+                <button class="feedback-modal-close" id="closeFeedbackBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
             </div>
             <div class="feedback-modal-content">
                 <form id="feedbackForm">
-                    <div class="feedback-form-group">
-                        <label for="feedbackMessage">Your Message *</label>
-                        <textarea id="feedbackMessage" name="message" placeholder="Tell us what you think about OptimusPC..." required rows="5"></textarea>
+                    <div class="feedback-type-selector">
+                        <label class="feedback-type-option">
+                            <input type="radio" name="feedbackType" value="suggestion" checked>
+                            <span class="type-card">
+                                <span class="type-icon">💡</span>
+                                <span class="type-label" data-i18n="feedback_type_suggestion">Suggestion</span>
+                            </span>
+                        </label>
+                        <label class="feedback-type-option">
+                            <input type="radio" name="feedbackType" value="bug">
+                            <span class="type-card">
+                                <span class="type-icon">🐛</span>
+                                <span class="type-label" data-i18n="feedback_type_bug">Bug Report</span>
+                            </span>
+                        </label>
+                        <label class="feedback-type-option">
+                            <input type="radio" name="feedbackType" value="feature">
+                            <span class="type-card">
+                                <span class="type-icon">⭐</span>
+                                <span class="type-label" data-i18n="feedback_type_feature">Feature</span>
+                            </span>
+                        </label>
+                        <label class="feedback-type-option">
+                            <input type="radio" name="feedbackType" value="general">
+                            <span class="type-card">
+                                <span class="type-icon">💬</span>
+                                <span class="type-label" data-i18n="feedback_type_general">General</span>
+                            </span>
+                        </label>
                     </div>
                     <div class="feedback-form-group">
-                        <label for="feedbackEmail">Email (Optional)</label>
-                        <input type="email" id="feedbackEmail" name="email" placeholder="your@email.com">
-                        <small>We'll contact you about your feedback</small>
+                        <label for="feedbackMessage">
+                            <span data-i18n="feedback_message_label">Your Message</span>
+                            <span class="required-star">*</span>
+                        </label>
+                        <textarea id="feedbackMessage" name="message" placeholder="Tell us what you think about OptimusPC..." data-i18n-placeholder="feedback_message_placeholder" required rows="4"></textarea>
+                        <div class="char-counter"><span id="charCount">0</span>/500</div>
                     </div>
                     <div class="feedback-form-group">
-                        <label for="feedbackType">Feedback Type</label>
-                        <select id="feedbackType" name="type">
-                            <option value="suggestion">💡 Suggestion</option>
-                            <option value="bug">🐛 Bug Report</option>
-                            <option value="feature">⭐ Feature Request</option>
-                            <option value="general">💬 General Feedback</option>
-                        </select>
+                        <label for="feedbackEmail">
+                            <span data-i18n="feedback_email_label">Email</span>
+                            <span class="optional-tag" data-i18n="feedback_optional">Optional</span>
+                        </label>
+                        <div class="input-with-icon">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <input type="email" id="feedbackEmail" name="email" placeholder="your@email.com">
+                        </div>
+                        <small data-i18n="feedback_email_help">We'll only use this to respond to your feedback</small>
                     </div>
                     <div class="feedback-form-actions">
-                        <button type="button" class="btn-feedback btn-cancel" id="cancelFeedbackBtn">Cancel</button>
-                        <button type="submit" class="btn-feedback btn-submit" id="submitFeedbackBtn">Send Feedback</button>
+                        <button type="button" class="btn-feedback btn-cancel" id="cancelFeedbackBtn" data-i18n="feedback_cancel">Cancel</button>
+                        <button type="submit" class="btn-feedback btn-submit" id="submitFeedbackBtn">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                            <span data-i18n="feedback_send">Send Feedback</span>
+                        </button>
                     </div>
-                    <div class="feedback-status" id="feedbackStatus"></div>
                 </form>
+                <div class="feedback-status" id="feedbackStatus"></div>
             </div>
         </div>
     </div>
