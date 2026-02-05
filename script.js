@@ -61,14 +61,52 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // ===== Mobile Navigation Toggle =====
+    // ===== Enhanced Mobile Navigation =====
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', function() {
-            navToggle.classList.toggle('active');
+            const isOpen = navToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
             document.body.classList.toggle('nav-open');
+            
+            // Update ARIA attributes
+            navToggle.setAttribute('aria-expanded', isOpen);
+            
+            // Focus management for accessibility
+            if (isOpen) {
+                // Focus first menu item
+                const firstMenuItem = navMenu.querySelector('.nav-link');
+                if (firstMenuItem) {
+                    setTimeout(() => firstMenuItem.focus(), 100);
+                }
+            }
         });
     }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (navToggle && navMenu && 
+            navToggle.classList.contains('active') &&
+            !navMenu.contains(e.target) && 
+            !navToggle.contains(e.target)) {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Keyboard navigation for mobile menu
+    document.addEventListener('keydown', function(e) {
+        if (navToggle && navMenu && navToggle.classList.contains('active')) {
+            if (e.key === 'Escape') {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('nav-open');
+                navToggle.setAttribute('aria-expanded', 'false');
+                navToggle.focus();
+            }
+        }
+    });
 
     // Close mobile menu when clicking a link
     var navLinks = document.querySelectorAll('.nav-link, .nav-btn-primary');

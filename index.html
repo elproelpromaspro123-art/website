@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="OptimusPC v3.4 - Professional Windows 10/11 Optimizer. Boost your PC performance with 45+ optimizations, advanced diagnostics, and secure backups.">
-    <meta name="keywords" content="windows optimizer, improve pc performance, optimize windows 11, optimize windows 10, gaming optimizer, pc booster">
+    <meta name="description" content="OptimusPC v3.4 - Professional Windows 10/11 Optimizer. Boost your PC performance with 45+ optimizations, advanced diagnostics, and secure backups. Download free portable optimizer.">
+    <meta name="keywords" content="windows optimizer, improve pc performance, optimize windows 11, optimize windows 10, gaming optimizer, pc booster, system optimizer, free optimizer">
     <meta name="author" content="OptimusPC">
-    <meta name="theme-color" content="#000000">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://optimuspc.com">
     <meta property="og:title" content="OptimusPC - Professional Windows Optimizer">
-    <meta property="og:description" content="Boost your PC performance with 45+ optimizations, advanced diagnostics, and secure backups.">
+    <meta property="og:description" content="Boost your PC performance with 45+ optimizations, advanced diagnostics, and secure backups. Free download.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://optimuspc.com">
     <meta property="og:image" content="images/theme-dark.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="OptimusPC">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OptimusPC - Professional Windows Optimizer">
+    <meta name="twitter:description" content="Boost your PC performance with 45+ optimizations. Free download.">
+    <meta name="twitter:image" content="images/theme-dark.png">
     <title>OptimusPC v3.4 - Professional Windows Optimizer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,34 +30,34 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-            <a href="#" class="nav-logo">
-                <span class="logo-icon">🚀</span>
+            <a href="#" class="nav-logo" aria-label="OptimusPC Home">
+                <span class="logo-icon" aria-hidden="true">🚀</span>
                 <span class="logo-text">OptimusPC</span>
                 <span class="version-badge">v3.4</span>
             </a>
-            <div class="nav-menu" id="navMenu">
-                <a href="#features" class="nav-link" data-i18n="nav_features">Features</a>
-                <a href="#screenshots" class="nav-link" data-i18n="nav_screenshots">Screenshots</a>
-                <a href="#comparison" class="nav-link" data-i18n="nav_comparison">Comparison</a>
-                <a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a>
-                <div class="nav-controls">
-                    <button class="lang-toggle" id="langToggle" title="Change Language">
-                        <span class="lang-icon">🌐</span>
+            <div class="nav-menu" id="navMenu" role="menubar">
+                <a href="#features" class="nav-link" data-i18n="nav_features" role="menuitem">Features</a>
+                <a href="#screenshots" class="nav-link" data-i18n="nav_screenshots" role="menuitem">Screenshots</a>
+                <a href="#comparison" class="nav-link" data-i18n="nav_comparison" role="menuitem">Comparison</a>
+                <a href="#faq" class="nav-link" data-i18n="nav_faq" role="menuitem">FAQ</a>
+                <div class="nav-controls" role="group" aria-label="Language and theme controls">
+                    <button class="lang-toggle" id="langToggle" title="Change Language" aria-label="Change language">
+                        <span class="lang-icon" aria-hidden="true">🌐</span>
                         <span class="lang-text" id="langText">EN</span>
                     </button>
-                    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
-                        <span class="theme-icon" id="themeIcon">🌙</span>
+                    <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle dark/light theme">
+                        <span class="theme-icon" id="themeIcon" aria-hidden="true">🌙</span>
                     </button>
-                    <button class="feedback-nav-btn" id="feedbackNavBtn" title="Send Feedback">
-                        <span class="feedback-nav-icon">💬</span>
+                    <button class="feedback-nav-btn" id="feedbackNavBtn" title="Send Feedback" aria-label="Open feedback form">
+                        <span class="feedback-nav-icon" aria-hidden="true">💬</span>
                         <span class="feedback-nav-text" data-i18n="nav_feedback">Feedback</span>
                     </button>
                 </div>
-                <a href="#download" class="nav-btn-primary" data-i18n="nav_download">Download Free</a>
+                <a href="#download" class="nav-btn-primary" data-i18n="nav_download" role="menuitem">Download Free</a>
             </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -56,15 +66,15 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero" id="hero">
-        <div class="hero-bg">
+    <header class="hero" id="hero" role="banner">
+        <div class="hero-bg" aria-hidden="true">
             <div class="hero-gradient"></div>
             <div class="hero-grid"></div>
         </div>
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    <span class="badge-dot"></span>
+                    <span class="badge-dot" aria-hidden="true"></span>
                     <span data-i18n="hero_badge">Updated February 2026</span>
                 </div>
                 <h1 class="hero-title">
@@ -74,25 +84,25 @@
                 <p class="hero-subtitle" data-i18n="hero_subtitle">
                     OptimusPC is the professional tool for Windows 10/11 that boosts your system performance with <strong>45+ optimizations</strong>, advanced diagnostics, and secure backups.
                 </p>
-                <div class="hero-stats">
+                <div class="hero-stats" role="group" aria-label="Key statistics">
                     <div class="hero-stat">
                         <span class="stat-value">45+</span>
                         <span class="stat-label" data-i18n="stat_optimizations">Optimizations</span>
                     </div>
-                    <div class="stat-divider"></div>
+                    <div class="stat-divider" aria-hidden="true"></div>
                     <div class="hero-stat">
                         <span class="stat-value">100%</span>
                         <span class="stat-label" data-i18n="stat_safe">Safe</span>
                     </div>
-                    <div class="stat-divider"></div>
+                    <div class="stat-divider" aria-hidden="true"></div>
                     <div class="hero-stat">
                         <span class="stat-value">2026</span>
                         <span class="stat-label" data-i18n="stat_updated">Updated</span>
                     </div>
                 </div>
-                <div class="hero-actions">
+                <div class="hero-actions" role="group" aria-label="Primary actions">
                     <a href="#download" class="btn btn-primary btn-lg">
-                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                             <polyline points="7 10 12 15 17 10"/>
                             <line x1="12" y1="15" x2="12" y2="3"/>
@@ -101,27 +111,27 @@
                     </a>
                     <a href="#features" class="btn btn-ghost btn-lg">
                         <span data-i18n="btn_learn_more">Learn More</span>
-                        <svg class="btn-icon-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="btn-icon-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <line x1="5" y1="12" x2="19" y2="12"/>
                             <polyline points="12 5 19 12 12 19"/>
                         </svg>
                     </a>
                 </div>
-                <div class="hero-trust">
+                <div class="hero-trust" role="group" aria-label="Trust indicators">
                     <div class="trust-item">
-                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                         </svg>
                         <span data-i18n="trust_safe">No malware</span>
                     </div>
                     <div class="trust-item">
-                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <polyline points="20 6 9 17 4 12"/>
                         </svg>
                         <span data-i18n="trust_compatible">Windows 10/11</span>
                     </div>
                     <div class="trust-item">
-                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <circle cx="12" cy="12" r="10"/>
                             <polyline points="12 6 12 12 16 14"/>
                         </svg>
@@ -129,26 +139,26 @@
                     </div>
                 </div>
             </div>
-            <div class="hero-visual">
+            <div class="hero-visual" role="img" aria-label="OptimusPC interface showing real-time system monitoring and optimization controls">
                 <div class="hero-image-container">
-                    <div class="hero-image-glow"></div>
-                    <img src="images/theme-dark.png" alt="OptimusPC Dashboard" class="hero-image" id="heroImage" loading="eager">
+                    <div class="hero-image-glow" aria-hidden="true"></div>
+                    <img src="images/theme-dark.png" alt="OptimusPC Dashboard - Real-time system monitoring and optimization interface" class="hero-image" id="heroImage" loading="eager" width="600" height="400">
                 </div>
-                <div class="floating-card floating-card-1">
+                <div class="floating-card floating-card-1" aria-hidden="true">
                     <span class="floating-icon">⚡</span>
                     <span class="floating-text" data-i18n="floating_optimized">Optimized</span>
                 </div>
-                <div class="floating-card floating-card-2">
+                <div class="floating-card floating-card-2" aria-hidden="true">
                     <span class="floating-icon">📊</span>
                     <span class="floating-text">-20% CPU</span>
                 </div>
-                <div class="floating-card floating-card-3">
+                <div class="floating-card floating-card-3" aria-hidden="true">
                     <span class="floating-icon">🚀</span>
                     <span class="floating-text" data-i18n="floating_faster">2x Faster</span>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
+        <div class="scroll-indicator" aria-hidden="true">
             <div class="mouse">
                 <div class="wheel"></div>
             </div>
@@ -266,7 +276,7 @@
                 <div class="screenshots-display">
                     <div class="screenshot-slide active" data-slide="dashboard">
                         <div class="screenshot-image-wrapper">
-                            <img src="images/dashboard.png" alt="Dashboard" class="screenshot-image" loading="lazy">
+                            <img src="images/dashboard.png" alt="OptimusPC Dashboard - Real-time monitoring of CPU, RAM, GPU and disk usage" class="screenshot-image" loading="lazy" width="800" height="500">
                         </div>
                         <div class="screenshot-caption">
                             <h3 data-i18n="slide_dashboard_title">Real-time Dashboard</h3>
@@ -275,7 +285,7 @@
                     </div>
                     <div class="screenshot-slide" data-slide="optimize">
                         <div class="screenshot-image-wrapper">
-                            <img src="images/optimize.png" alt="Optimize" class="screenshot-image" loading="lazy">
+                            <img src="images/optimize.png" alt="45+ System Optimizations - Gaming, privacy, network and performance tweaks" class="screenshot-image" loading="lazy" width="800" height="500">
                         </div>
                         <div class="screenshot-caption">
                             <h3 data-i18n="slide_optimize_title">45+ Optimizations</h3>
@@ -284,7 +294,7 @@
                     </div>
                     <div class="screenshot-slide" data-slide="diagnostics">
                         <div class="screenshot-image-wrapper">
-                            <img src="images/diagnostics.png" alt="Diagnostics" class="screenshot-image" loading="lazy">
+                            <img src="images/diagnostics.png" alt="Advanced System Diagnostics - Hardware analysis and health monitoring" class="screenshot-image" loading="lazy" width="800" height="500">
                         </div>
                         <div class="screenshot-caption">
                             <h3 data-i18n="slide_diagnostics_title">Advanced Diagnostics</h3>
@@ -293,7 +303,7 @@
                     </div>
                     <div class="screenshot-slide" data-slide="backups">
                         <div class="screenshot-image-wrapper">
-                            <img src="images/backups.png" alt="Backups" class="screenshot-image" loading="lazy">
+                            <img src="images/backups.png" alt="Automatic Backup System - Restore points and recovery options" class="screenshot-image" loading="lazy" width="800" height="500">
                         </div>
                         <div class="screenshot-caption">
                             <h3 data-i18n="slide_backups_title">Automatic Backups</h3>
@@ -302,7 +312,7 @@
                     </div>
                     <div class="screenshot-slide" data-slide="themes">
                         <div class="screenshot-image-wrapper">
-                            <img src="images/theme-dark.png" alt="Themes" class="screenshot-image" loading="lazy">
+                            <img src="images/theme-dark.png" alt="Dark Theme Interface - Professional dark mode design" class="screenshot-image" loading="lazy" width="800" height="500">
                         </div>
                         <div class="screenshot-caption">
                             <h3 data-i18n="slide_themes_title">Dark & Light Themes</h3>
