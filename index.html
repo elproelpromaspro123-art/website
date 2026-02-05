@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="OptimusPC v3.4 - Optimizador profesional de Windows 10/11. Mejora el rendimiento de tu PC con 45+ optimizaciones, diagnósticos avanzados y backups seguros.">
-    <meta name="keywords" content="optimizador windows, mejorar rendimiento pc, optimizar windows 11, optimizar windows 10, gaming optimizer">
+    <meta name="description" content="OptimusPC v3.4 - Professional Windows 10/11 Optimizer. Boost your PC performance with 45+ optimizations, advanced diagnostics, and secure backups.">
+    <meta name="keywords" content="windows optimizer, improve pc performance, optimize windows 11, optimize windows 10, gaming optimizer, pc booster">
     <meta name="author" content="OptimusPC">
-    <meta property="og:title" content="OptimusPC - Optimizador Profesional de Windows">
-    <meta property="og:description" content="Mejora el rendimiento de tu PC con 45+ optimizaciones, diagnósticos avanzados y backups seguros.">
+    <meta property="og:title" content="OptimusPC - Professional Windows Optimizer">
+    <meta property="og:description" content="Boost your PC performance with 45+ optimizations, advanced diagnostics, and secure backups.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="images/theme-dark.png">
-    <title>OptimusPC v3.4 - Optimizador Profesional de Windows</title>
+    <title>OptimusPC v3.4 - Professional Windows Optimizer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -27,11 +27,20 @@
                 <span class="version-badge">v3.4</span>
             </a>
             <div class="nav-menu" id="navMenu">
-                <a href="#features" class="nav-link">Características</a>
-                <a href="#screenshots" class="nav-link">Capturas</a>
-                <a href="#comparison" class="nav-link">Comparativa</a>
-                <a href="#faq" class="nav-link">FAQ</a>
-                <a href="#download" class="nav-btn-primary">Descargar Gratis</a>
+                <a href="#features" class="nav-link" data-i18n="nav_features">Features</a>
+                <a href="#screenshots" class="nav-link" data-i18n="nav_screenshots">Screenshots</a>
+                <a href="#comparison" class="nav-link" data-i18n="nav_comparison">Comparison</a>
+                <a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a>
+                <div class="nav-controls">
+                    <button class="lang-toggle" id="langToggle" title="Change Language">
+                        <span class="lang-icon">🌐</span>
+                        <span class="lang-text" id="langText">EN</span>
+                    </button>
+                    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                        <span class="theme-icon" id="themeIcon">🌙</span>
+                    </button>
+                </div>
+                <a href="#download" class="nav-btn-primary" data-i18n="nav_download">Download Free</a>
             </div>
             <button class="nav-toggle" id="navToggle" aria-label="Menu">
                 <span></span>
@@ -45,63 +54,100 @@
     <header class="hero" id="hero">
         <div class="hero-bg">
             <div class="hero-gradient"></div>
-            <div class="hero-particles"></div>
+            <div class="hero-grid"></div>
         </div>
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    <span class="badge-icon">⚡</span>
-                    <span>Actualizado Febrero 2026</span>
+                    <span class="badge-dot"></span>
+                    <span data-i18n="hero_badge">Updated February 2026</span>
                 </div>
                 <h1 class="hero-title">
-                    Optimiza tu PC
-                    <span class="gradient-text">al máximo rendimiento</span>
+                    <span data-i18n="hero_title_1">Optimize your PC</span>
+                    <span class="hero-title-accent" data-i18n="hero_title_2">Maximum Performance</span>
                 </h1>
-                <p class="hero-subtitle">
-                    OptimusPC es la herramienta profesional para Windows 10/11 que mejora el rendimiento 
-                    de tu sistema con <strong>45+ optimizaciones</strong>, diagnósticos avanzados y backups seguros.
+                <p class="hero-subtitle" data-i18n="hero_subtitle">
+                    OptimusPC is the professional tool for Windows 10/11 that boosts your system performance with <strong>45+ optimizations</strong>, advanced diagnostics, and secure backups.
                 </p>
                 <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">45+</span>
-                        <span class="stat-label">Optimizaciones</span>
+                    <div class="hero-stat">
+                        <span class="stat-value">45+</span>
+                        <span class="stat-label" data-i18n="stat_optimizations">Optimizations</span>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Seguro</span>
+                    <div class="stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="stat-value">100%</span>
+                        <span class="stat-label" data-i18n="stat_safe">Safe</span>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">2026</span>
-                        <span class="stat-label">Actualizado</span>
+                    <div class="stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="stat-value">2026</span>
+                        <span class="stat-label" data-i18n="stat_updated">Updated</span>
                     </div>
                 </div>
                 <div class="hero-actions">
                     <a href="#download" class="btn btn-primary btn-lg">
-                        <span class="btn-icon">⬇️</span>
-                        Descargar Gratis
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        <span data-i18n="btn_download">Download Free</span>
                     </a>
-                    <a href="#features" class="btn btn-secondary btn-lg">
-                        <span class="btn-icon">📖</span>
-                        Ver Características
+                    <a href="#features" class="btn btn-ghost btn-lg">
+                        <span data-i18n="btn_learn_more">Learn More</span>
+                        <svg class="btn-icon-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
                     </a>
                 </div>
                 <div class="hero-trust">
-                    <span class="trust-icon">🛡️</span>
-                    <span>Compatible con Windows 10/11 • Sin malware • Código verificado</span>
+                    <div class="trust-item">
+                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        <span data-i18n="trust_safe">No malware</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        <span data-i18n="trust_compatible">Windows 10/11</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                        <span data-i18n="trust_instant">Instant results</span>
+                    </div>
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="hero-image-wrapper">
-                    <img src="images/theme-dark.png" alt="OptimusPC Dashboard" class="hero-image" loading="eager">
+                <div class="hero-image-container">
                     <div class="hero-image-glow"></div>
+                    <img src="images/theme-dark.png" alt="OptimusPC Dashboard" class="hero-image" id="heroImage" loading="eager">
+                    <div class="hero-image-reflection"></div>
+                </div>
+                <div class="floating-card floating-card-1">
+                    <span class="floating-icon">⚡</span>
+                    <span class="floating-text" data-i18n="floating_optimized">Optimized</span>
+                </div>
+                <div class="floating-card floating-card-2">
+                    <span class="floating-icon">📊</span>
+                    <span class="floating-text">-20% CPU</span>
+                </div>
+                <div class="floating-card floating-card-3">
+                    <span class="floating-icon">🚀</span>
+                    <span class="floating-text" data-i18n="floating_faster">2x Faster</span>
                 </div>
             </div>
         </div>
-        <div class="hero-scroll">
-            <a href="#features" class="scroll-indicator">
-                <span>Descubre más</span>
-                <div class="scroll-arrow"></div>
-            </a>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
         </div>
     </header>
 
@@ -109,50 +155,74 @@
     <section class="features" id="features">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">Características</span>
-                <h2 class="section-title">Todo lo que necesitas para optimizar tu PC</h2>
-                <p class="section-subtitle">OptimusPC incluye herramientas profesionales para mejorar el rendimiento, diagnosticar problemas y proteger tu sistema.</p>
+                <span class="section-label" data-i18n="features_label">Features</span>
+                <h2 class="section-title" data-i18n="features_title">Everything you need to optimize your PC</h2>
+                <p class="section-subtitle" data-i18n="features_subtitle">OptimusPC includes professional tools to boost performance, diagnose issues, and protect your system.</p>
             </div>
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>45+ Optimizaciones</h3>
-                    <p>Ajustes en energía, servicios, gaming, privacidad, red y almacenamiento para máximo rendimiento.</p>
+                <div class="feature-card feature-card-large">
+                    <div class="feature-header">
+                        <div class="feature-icon-wrapper">
+                            <span class="feature-icon">⚡</span>
+                        </div>
+                        <span class="feature-badge" data-i18n="feature_badge_new">New</span>
+                    </div>
+                    <h3 class="feature-title" data-i18n="feature_1_title">45+ Optimizations</h3>
+                    <p class="feature-desc" data-i18n="feature_1_desc">Power, services, gaming, privacy, network, and storage tweaks for maximum performance.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Gaming</span>
+                        <span class="tag">Privacy</span>
+                        <span class="tag">Network</span>
+                    </div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Dashboard en Tiempo Real</h3>
-                    <p>Monitoreo de CPU, RAM, GPU y disco con gráficos en vivo y estadísticas detalladas.</p>
+                    <div class="feature-icon-wrapper">
+                        <span class="feature-icon">📊</span>
+                    </div>
+                    <h3 class="feature-title" data-i18n="feature_2_title">Real-time Dashboard</h3>
+                    <p class="feature-desc" data-i18n="feature_2_desc">Live monitoring of CPU, RAM, GPU, and disk with detailed charts.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🎮</div>
-                    <h3>Perfiles Gaming/Trabajo</h3>
-                    <p>Configura tu PC para máximo FPS en juegos o estabilidad en productividad con un clic.</p>
+                    <div class="feature-icon-wrapper">
+                        <span class="feature-icon">🎮</span>
+                    </div>
+                    <h3 class="feature-title" data-i18n="feature_3_title">Gaming/Work Profiles</h3>
+                    <p class="feature-desc" data-i18n="feature_3_desc">Configure your PC for max FPS or productivity with one click.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📈</div>
-                    <h3>Comparativa Antes/Después</h3>
-                    <p>Mide el impacto real de las optimizaciones con métricas verificadas y historial de auditoría.</p>
+                    <div class="feature-icon-wrapper">
+                        <span class="feature-icon">📈</span>
+                    </div>
+                    <h3 class="feature-title" data-i18n="feature_4_title">Before/After Comparison</h3>
+                    <p class="feature-desc" data-i18n="feature_4_desc">Measure real impact with verified metrics and audit history.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">💾</div>
-                    <h3>Backups Automáticos</h3>
-                    <p>Crea puntos de restauración antes de cada cambio. Revierte con un clic si algo no funciona.</p>
+                    <div class="feature-icon-wrapper">
+                        <span class="feature-icon">💾</span>
+                    </div>
+                    <h3 class="feature-title" data-i18n="feature_5_title">Automatic Backups</h3>
+                    <p class="feature-desc" data-i18n="feature_5_desc">Create restore points before each change. Revert with one click.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Diagnóstico Avanzado</h3>
-                    <p>Análisis profundo de hardware, drivers, actualizaciones y estado de discos SSD/HDD.</p>
+                    <div class="feature-icon-wrapper">
+                        <span class="feature-icon">🛡️</span>
+                    </div>
+                    <h3 class="feature-title" data-i18n="feature_6_title">Advanced Diagnostics</h3>
+                    <p class="feature-desc" data-i18n="feature_6_desc">Deep analysis of hardware, drivers, updates, and SSD/HDD health.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🛠️</div>
-                    <h3>Recomendaciones de Mejoras</h3>
-                    <p>Sugerencias inteligentes de upgrades con comparativas y enlaces a tiendas online.</p>
+                    <div class="feature-icon-wrapper">
+                        <span class="feature-icon">🛠️</span>
+                    </div>
+                    <h3 class="feature-title" data-i18n="feature_7_title">Upgrade Recommendations</h3>
+                    <p class="feature-desc" data-i18n="feature_7_desc">Smart hardware suggestions with comparisons and store links.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🌐</div>
-                    <h3>Multilenguaje</h3>
-                    <p>Interfaz disponible en Español e Inglés con tema oscuro y claro.</p>
+                    <div class="feature-icon-wrapper">
+                        <span class="feature-icon">🌐</span>
+                    </div>
+                    <h3 class="feature-title" data-i18n="feature_8_title">Multi-language</h3>
+                    <p class="feature-desc" data-i18n="feature_8_desc">Interface available in Spanish and English with dark and light themes.</p>
                 </div>
             </div>
         </div>
@@ -162,108 +232,48 @@
     <section class="screenshots" id="screenshots">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">Galería</span>
-                <h2 class="section-title">Interfaz moderna y profesional</h2>
-                <p class="section-subtitle">Diseño intuitivo con tema oscuro y claro. Toda la información que necesitas, organizada.</p>
+                <span class="section-label" data-i18n="screenshots_label">Gallery</span>
+                <h2 class="section-title" data-i18n="screenshots_title">Modern & Professional Interface</h2>
+                <p class="section-subtitle" data-i18n="screenshots_subtitle">Intuitive design with dark and light themes. All the information you need, organized.</p>
             </div>
-            <div class="screenshots-tabs">
-                <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
-                <button class="tab-btn" data-tab="optimize">Optimizar</button>
-                <button class="tab-btn" data-tab="comparison">Comparativa</button>
-                <button class="tab-btn" data-tab="diagnostics">Diagnóstico</button>
-                <button class="tab-btn" data-tab="backups">Backups</button>
-                <button class="tab-btn" data-tab="themes">Temas</button>
-            </div>
-            <div class="screenshots-content">
-                <div class="screenshot-panel active" id="panel-dashboard">
-                    <div class="screenshot-info">
-                        <h3>Dashboard del Sistema</h3>
-                        <p>Vista general de tu PC con monitoreo en tiempo real de CPU, RAM, GPU y disco. Acciones rápidas para optimizar y diagnosticar.</p>
-                        <ul class="screenshot-features">
-                            <li>Métricas en tiempo real</li>
-                            <li>Puntuación de salud del sistema</li>
-                            <li>Acciones rápidas</li>
-                            <li>Gráficos de rendimiento</li>
-                        </ul>
-                    </div>
-                    <div class="screenshot-image">
-                        <img src="images/dashboard.png" alt="Dashboard de OptimusPC" loading="lazy">
-                    </div>
+            <div class="screenshots-wrapper">
+                <div class="screenshots-nav">
+                    <button class="screenshot-nav-btn active" data-tab="dashboard">
+                        <span class="nav-icon">📊</span>
+                        <span data-i18n="tab_dashboard">Dashboard</span>
+                    </button>
+                    <button class="screenshot-nav-btn" data-tab="optimize">
+                        <span class="nav-icon">⚡</span>
+                        <span data-i18n="tab_optimize">Optimize</span>
+                    </button>
+                    <button class="screenshot-nav-btn" data-tab="comparison">
+                        <span class="nav-icon">📈</span>
+                        <span data-i18n="tab_comparison">Comparison</span>
+                    </button>
+                    <button class="screenshot-nav-btn" data-tab="diagnostics">
+                        <span class="nav-icon">🛡️</span>
+                        <span data-i18n="tab_diagnostics">Diagnostics</span>
+                    </button>
+                    <button class="screenshot-nav-btn" data-tab="backups">
+                        <span class="nav-icon">💾</span>
+                        <span data-i18n="tab_backups">Backups</span>
+                    </button>
                 </div>
-                <div class="screenshot-panel" id="panel-optimize">
-                    <div class="screenshot-info">
-                        <h3>Optimizaciones Inteligentes</h3>
-                        <p>44+ optimizaciones organizadas por categoría con indicador de impacto. Perfiles predefinidos para Gaming y Trabajo.</p>
-                        <ul class="screenshot-features">
-                            <li>Perfiles Gaming y Trabajo</li>
-                            <li>Auto-Optimize inteligente</li>
-                            <li>Indicador de impacto</li>
-                            <li>Estado en tiempo real</li>
-                        </ul>
+                <div class="screenshots-display">
+                    <div class="screenshot-slide active" data-slide="dashboard">
+                        <img src="images/dashboard.png" alt="Dashboard" loading="lazy">
                     </div>
-                    <div class="screenshot-image">
-                        <img src="images/optimize.png" alt="Optimizaciones de OptimusPC" loading="lazy">
+                    <div class="screenshot-slide" data-slide="optimize">
+                        <img src="images/optimize.png" alt="Optimize" loading="lazy">
                     </div>
-                </div>
-                <div class="screenshot-panel" id="panel-comparison">
-                    <div class="screenshot-info">
-                        <h3>Comparativa de Rendimiento</h3>
-                        <p>Mide el impacto real de las optimizaciones con métricas verificadas antes y después.</p>
-                        <ul class="screenshot-features">
-                            <li>Medición verificada</li>
-                            <li>Historial de auditoría</li>
-                            <li>Porcentajes de mejora</li>
-                            <li>Resumen inteligente</li>
-                        </ul>
+                    <div class="screenshot-slide" data-slide="comparison">
+                        <img src="images/comparison.png" alt="Comparison" loading="lazy">
                     </div>
-                    <div class="screenshot-image">
-                        <img src="images/comparison.png" alt="Comparativa de OptimusPC" loading="lazy">
+                    <div class="screenshot-slide" data-slide="diagnostics">
+                        <img src="images/diagnostics.png" alt="Diagnostics" loading="lazy">
                     </div>
-                </div>
-                <div class="screenshot-panel" id="panel-diagnostics">
-                    <div class="screenshot-info">
-                        <h3>Diagnóstico Avanzado</h3>
-                        <p>Análisis profundo de hardware, drivers y actualizaciones de Windows con estado detallado.</p>
-                        <ul class="screenshot-features">
-                            <li>Resumen de hardware</li>
-                            <li>Estado de discos SSD/HDD</li>
-                            <li>Análisis de drivers</li>
-                            <li>Actualizaciones pendientes</li>
-                        </ul>
-                    </div>
-                    <div class="screenshot-image">
-                        <img src="images/diagnostics.png" alt="Diagnóstico de OptimusPC" loading="lazy">
-                    </div>
-                </div>
-                <div class="screenshot-panel" id="panel-backups">
-                    <div class="screenshot-info">
-                        <h3>Gestión de Backups</h3>
-                        <p>Crea puntos de restauración seguros antes de aplicar cambios. Revierte con un clic.</p>
-                        <ul class="screenshot-features">
-                            <li>System Restore integrado</li>
-                            <li>Pre-verificación de seguridad</li>
-                            <li>Exportar auditoría</li>
-                            <li>Gestión de puntos</li>
-                        </ul>
-                    </div>
-                    <div class="screenshot-image">
-                        <img src="images/backups.png" alt="Backups de OptimusPC" loading="lazy">
-                    </div>
-                </div>
-                <div class="screenshot-panel" id="panel-themes">
-                    <div class="screenshot-info">
-                        <h3>Temas Oscuro y Claro</h3>
-                        <p>Elige el tema que prefieras. Interfaz moderna que se adapta a tu estilo.</p>
-                        <ul class="screenshot-features">
-                            <li>Tema oscuro profesional</li>
-                            <li>Tema claro elegante</li>
-                            <li>Cambio instantáneo</li>
-                            <li>Persistencia de preferencia</li>
-                        </ul>
-                    </div>
-                    <div class="screenshot-image themes-comparison">
-                        <img src="images/theme-dark.png" alt="Tema oscuro de OptimusPC" loading="lazy">
-                        <img src="images/theme-light.png" alt="Tema claro de OptimusPC" loading="lazy">
+                    <div class="screenshot-slide" data-slide="backups">
+                        <img src="images/backups.png" alt="Backups" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -274,98 +284,109 @@
     <section class="comparison" id="comparison">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">Resultados</span>
-                <h2 class="section-title">Mejoras reales y medibles</h2>
-                <p class="section-subtitle">OptimusPC muestra el impacto real de cada optimización con métricas verificadas.</p>
+                <span class="section-label" data-i18n="comparison_label">Results</span>
+                <h2 class="section-title" data-i18n="comparison_title">Real & Measurable Improvements</h2>
+                <p class="section-subtitle" data-i18n="comparison_subtitle">OptimusPC shows real impact of each optimization with verified metrics.</p>
             </div>
             <div class="comparison-grid">
                 <div class="comparison-card">
-                    <div class="comparison-icon">💻</div>
-                    <h3>Uso de CPU</h3>
-                    <div class="comparison-bar">
-                        <div class="bar-before" style="width: 45%">
-                            <span>Antes: 45%</span>
+                    <div class="comparison-header">
+                        <span class="comparison-icon">💻</span>
+                        <h3 data-i18n="comp_cpu">CPU Usage</h3>
+                    </div>
+                    <div class="comparison-chart">
+                        <div class="chart-bar">
+                            <div class="bar-fill bar-before" style="--value: 45%">
+                                <span class="bar-label" data-i18n="before">Before</span>
+                                <span class="bar-value">45%</span>
+                            </div>
                         </div>
-                        <div class="bar-after" style="width: 25%">
-                            <span>Después: 25%</span>
+                        <div class="chart-bar">
+                            <div class="bar-fill bar-after" style="--value: 25%">
+                                <span class="bar-label" data-i18n="after">After</span>
+                                <span class="bar-value">25%</span>
+                            </div>
                         </div>
                     </div>
-                    <p class="comparison-improvement">↓ 20% menos uso en reposo</p>
+                    <div class="comparison-result">
+                        <span class="result-arrow">↓</span>
+                        <span data-i18n="comp_cpu_result">20% less idle usage</span>
+                    </div>
                 </div>
                 <div class="comparison-card">
-                    <div class="comparison-icon">🧠</div>
-                    <h3>Uso de RAM</h3>
-                    <div class="comparison-bar">
-                        <div class="bar-before" style="width: 55%">
-                            <span>Antes: 55%</span>
+                    <div class="comparison-header">
+                        <span class="comparison-icon">🧠</span>
+                        <h3 data-i18n="comp_ram">RAM Usage</h3>
+                    </div>
+                    <div class="comparison-chart">
+                        <div class="chart-bar">
+                            <div class="bar-fill bar-before" style="--value: 55%">
+                                <span class="bar-label" data-i18n="before">Before</span>
+                                <span class="bar-value">55%</span>
+                            </div>
                         </div>
-                        <div class="bar-after" style="width: 35%">
-                            <span>Después: 35%</span>
+                        <div class="chart-bar">
+                            <div class="bar-fill bar-after" style="--value: 35%">
+                                <span class="bar-label" data-i18n="after">After</span>
+                                <span class="bar-value">35%</span>
+                            </div>
                         </div>
                     </div>
-                    <p class="comparison-improvement">↓ 20% memoria liberada</p>
+                    <div class="comparison-result">
+                        <span class="result-arrow">↓</span>
+                        <span data-i18n="comp_ram_result">20% memory freed</span>
+                    </div>
                 </div>
                 <div class="comparison-card">
-                    <div class="comparison-icon">⚡</div>
-                    <h3>Tiempo de Arranque</h3>
-                    <div class="comparison-bar">
-                        <div class="bar-before" style="width: 80%">
-                            <span>Antes: 45s</span>
+                    <div class="comparison-header">
+                        <span class="comparison-icon">⚡</span>
+                        <h3 data-i18n="comp_boot">Boot Time</h3>
+                    </div>
+                    <div class="comparison-chart">
+                        <div class="chart-bar">
+                            <div class="bar-fill bar-before" style="--value: 80%">
+                                <span class="bar-label" data-i18n="before">Before</span>
+                                <span class="bar-value">45s</span>
+                            </div>
                         </div>
-                        <div class="bar-after" style="width: 40%">
-                            <span>Después: 22s</span>
+                        <div class="chart-bar">
+                            <div class="bar-fill bar-after" style="--value: 40%">
+                                <span class="bar-label" data-i18n="after">After</span>
+                                <span class="bar-value">22s</span>
+                            </div>
                         </div>
                     </div>
-                    <p class="comparison-improvement">↓ 50% más rápido</p>
+                    <div class="comparison-result">
+                        <span class="result-arrow">↓</span>
+                        <span data-i18n="comp_boot_result">50% faster startup</span>
+                    </div>
                 </div>
                 <div class="comparison-card">
-                    <div class="comparison-icon">🎮</div>
-                    <h3>FPS en Juegos</h3>
-                    <div class="comparison-bar">
-                        <div class="bar-before" style="width: 50%">
-                            <span>Antes: 60 FPS</span>
+                    <div class="comparison-header">
+                        <span class="comparison-icon">🎮</span>
+                        <h3 data-i18n="comp_fps">Gaming FPS</h3>
+                    </div>
+                    <div class="comparison-chart">
+                        <div class="chart-bar">
+                            <div class="bar-fill bar-before" style="--value: 50%">
+                                <span class="bar-label" data-i18n="before">Before</span>
+                                <span class="bar-value">60</span>
+                            </div>
                         </div>
-                        <div class="bar-after" style="width: 75%">
-                            <span>Después: 85 FPS</span>
+                        <div class="chart-bar">
+                            <div class="bar-fill bar-after" style="--value: 75%">
+                                <span class="bar-label" data-i18n="after">After</span>
+                                <span class="bar-value">85</span>
+                            </div>
                         </div>
                     </div>
-                    <p class="comparison-improvement">↑ 40% más FPS</p>
+                    <div class="comparison-result positive">
+                        <span class="result-arrow">↑</span>
+                        <span data-i18n="comp_fps_result">40% more FPS</span>
+                    </div>
                 </div>
             </div>
-            <p class="comparison-disclaimer">* Los resultados varían según el hardware y configuración del sistema</p>
-        </div>
-    </section>
-
-    <!-- Changelog Section -->
-    <section class="changelog">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Novedades</span>
-                <h2 class="section-title">Actualización v3.4.0</h2>
-                <p class="section-subtitle">Lanzada el 4 de Febrero de 2026</p>
-            </div>
-            <div class="changelog-content">
-                <div class="changelog-column">
-                    <h3>✨ Nuevas Características</h3>
-                    <ul>
-                        <li>Perfiles Juegos y Trabajo con optimizaciones dedicadas</li>
-                        <li>Auto-Optimize con leyenda de impacto y modal mejorado</li>
-                        <li>Comparativa en segundo plano con contador de medición</li>
-                        <li>Nuevas optimizaciones: Edge Preload, Startup Boost, Mouse Acceleration, Widgets/News</li>
-                        <li>Mercado Libre con enlaces adaptados por país</li>
-                    </ul>
-                </div>
-                <div class="changelog-column">
-                    <h3>🔧 Correcciones</h3>
-                    <ul>
-                        <li>Estado de optimizaciones consistente tras aplicar</li>
-                        <li>Auto-Optimize ya no se activa sin confirmación manual</li>
-                        <li>Detección Windows 10/11 más robusta</li>
-                        <li>Diagnóstico de discos sin valores indefinidos</li>
-                        <li>Auditoría incluye reversión con detalle de cambios</li>
-                    </ul>
-                </div>
-            </div>
+            <p class="comparison-disclaimer" data-i18n="comparison_disclaimer">* Results vary based on hardware and system configuration</p>
         </div>
     </section>
 
@@ -373,63 +394,75 @@
     <section class="faq" id="faq">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">FAQ</span>
-                <h2 class="section-title">Preguntas Frecuentes</h2>
-                <p class="section-subtitle">Todo lo que necesitas saber sobre OptimusPC</p>
+                <span class="section-label">FAQ</span>
+                <h2 class="section-title" data-i18n="faq_title">Frequently Asked Questions</h2>
+                <p class="section-subtitle" data-i18n="faq_subtitle">Everything you need to know about OptimusPC</p>
             </div>
-            <div class="faq-list">
+            <div class="faq-grid">
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>¿Es seguro aplicar todas las optimizaciones?</span>
-                        <span class="faq-icon">+</span>
+                    <button class="faq-trigger">
+                        <span data-i18n="faq_1_q">Is it safe to apply all optimizations?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
                     </button>
-                    <div class="faq-answer">
-                        <p>Sí, todas las optimizaciones son seguras y reversibles. OptimusPC crea un punto de restauración automático antes de aplicar cambios, permitiéndote revertir en cualquier momento.</p>
+                    <div class="faq-content">
+                        <p data-i18n="faq_1_a">Yes, all optimizations are safe and reversible. OptimusPC automatically creates a restore point before applying changes, allowing you to revert at any time.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>¿Funciona en Windows 10 y Windows 11?</span>
-                        <span class="faq-icon">+</span>
+                    <button class="faq-trigger">
+                        <span data-i18n="faq_2_q">Does it work on Windows 10 and Windows 11?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
                     </button>
-                    <div class="faq-answer">
-                        <p>Sí, OptimusPC es compatible con Windows 10 (64-bit) y Windows 11. El programa detecta automáticamente tu versión de Windows y aplica optimizaciones compatibles.</p>
+                    <div class="faq-content">
+                        <p data-i18n="faq_2_a">Yes, OptimusPC is compatible with Windows 10 (64-bit) and Windows 11. The program automatically detects your Windows version and applies compatible optimizations.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>¿Qué hace el modo Gaming?</span>
-                        <span class="faq-icon">+</span>
+                    <button class="faq-trigger">
+                        <span data-i18n="faq_3_q">What does Gaming Mode do?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
                     </button>
-                    <div class="faq-answer">
-                        <p>El modo Gaming aplica optimizaciones específicas para maximizar FPS, reducir latencia y mejorar la estabilidad en juegos. Incluye ajustes de energía, prioridad de GPU y desactivación de servicios innecesarios.</p>
+                    <div class="faq-content">
+                        <p data-i18n="faq_3_a">Gaming Mode applies specific optimizations to maximize FPS, reduce latency, and improve stability in games. Includes power settings, GPU priority, and disabling unnecessary services.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>¿Cómo puedo revertir los cambios?</span>
-                        <span class="faq-icon">+</span>
+                    <button class="faq-trigger">
+                        <span data-i18n="faq_4_q">How can I revert changes?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
                     </button>
-                    <div class="faq-answer">
-                        <p>Tienes dos opciones: usar el botón "Revertir Todo" en la sección Optimizar, o restaurar desde un punto de restauración en la sección Backups. Ambas opciones son seguras y rápidas.</p>
+                    <div class="faq-content">
+                        <p data-i18n="faq_4_a">You have two options: use the "Revert All" button in the Optimize section, or restore from a restore point in the Backups section. Both options are safe and quick.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>¿El programa elimina mis archivos personales?</span>
-                        <span class="faq-icon">+</span>
+                    <button class="faq-trigger">
+                        <span data-i18n="faq_5_q">Does the program delete my personal files?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
                     </button>
-                    <div class="faq-answer">
-                        <p>No. OptimusPC solo modifica configuraciones del sistema y registro de Windows. Nunca toca tus archivos personales, documentos, fotos o programas instalados.</p>
+                    <div class="faq-content">
+                        <p data-i18n="faq_5_a">No. OptimusPC only modifies system settings and Windows registry. It never touches your personal files, documents, photos, or installed programs.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>¿Necesito ejecutar el programa regularmente?</span>
-                        <span class="faq-icon">+</span>
+                    <button class="faq-trigger">
+                        <span data-i18n="faq_6_q">Do I need to run the program regularly?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
                     </button>
-                    <div class="faq-answer">
-                        <p>No es necesario. Una vez aplicadas las optimizaciones, permanecen activas. Solo necesitas volver a ejecutar OptimusPC después de actualizaciones mayores de Windows o si instalas nuevo software que modifique la configuración.</p>
+                    <div class="faq-content">
+                        <p data-i18n="faq_6_a">Not necessary. Once optimizations are applied, they remain active. You only need to run OptimusPC again after major Windows updates or if you install new software that modifies settings.</p>
                     </div>
                 </div>
             </div>
@@ -440,34 +473,59 @@
     <section class="download" id="download">
         <div class="container">
             <div class="download-card">
+                <div class="download-bg"></div>
                 <div class="download-content">
-                    <h2>Descarga OptimusPC Gratis</h2>
-                    <p>Optimiza tu PC Windows en minutos. Sin instalación, portable y seguro.</p>
-                    <div class="download-info">
-                        <div class="info-item">
-                            <span class="info-icon">📦</span>
-                            <span>Versión: 3.4.0</span>
+                    <span class="download-label" data-i18n="download_label">Free Download</span>
+                    <h2 class="download-title" data-i18n="download_title">Download OptimusPC</h2>
+                    <p class="download-subtitle" data-i18n="download_subtitle">Optimize your Windows PC in minutes. Portable, no installation required.</p>
+                    
+                    <div class="download-specs">
+                        <div class="spec-item">
+                            <span class="spec-icon">📦</span>
+                            <div class="spec-info">
+                                <span class="spec-label" data-i18n="spec_version">Version</span>
+                                <span class="spec-value">3.4.0</span>
+                            </div>
                         </div>
-                        <div class="info-item">
-                            <span class="info-icon">💾</span>
-                            <span>Tamaño: ~85 MB</span>
+                        <div class="spec-item">
+                            <span class="spec-icon">💾</span>
+                            <div class="spec-info">
+                                <span class="spec-label" data-i18n="spec_size">Size</span>
+                                <span class="spec-value">~85 MB</span>
+                            </div>
                         </div>
-                        <div class="info-item">
-                            <span class="info-icon">🖥️</span>
-                            <span>Windows 10/11 (64-bit)</span>
+                        <div class="spec-item">
+                            <span class="spec-icon">🖥️</span>
+                            <div class="spec-info">
+                                <span class="spec-label" data-i18n="spec_system">System</span>
+                                <span class="spec-value">Win 10/11 x64</span>
+                            </div>
                         </div>
                     </div>
-                    <a href="OptimusPC.exe" class="btn btn-primary btn-xl" download="OptimusPC.exe">
-                        <span class="btn-icon">⬇️</span>
-                        Descargar OptimusPC.exe
+
+                    <a href="OptimusPC.exe" class="btn btn-download" download="OptimusPC.exe">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        <span data-i18n="btn_download_exe">Download OptimusPC.exe</span>
                     </a>
+
                     <p class="download-note">
-                        <span class="note-icon">ℹ️</span>
-                        Requiere permisos de Administrador para aplicar optimizaciones
+                        <svg class="note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="16" x2="12" y2="12"/>
+                            <line x1="12" y1="8" x2="12.01" y2="8"/>
+                        </svg>
+                        <span data-i18n="download_note">Requires Administrator permissions to apply optimizations</span>
                     </p>
                 </div>
                 <div class="download-visual">
-                    <div class="rocket-animation">🚀</div>
+                    <div class="download-rocket">🚀</div>
+                    <div class="download-particles">
+                        <span></span><span></span><span></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -476,32 +534,44 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-main">
                 <div class="footer-brand">
-                    <div class="footer-logo">
+                    <a href="#" class="footer-logo">
                         <span class="logo-icon">🚀</span>
                         <span class="logo-text">OptimusPC</span>
+                    </a>
+                    <p class="footer-desc" data-i18n="footer_desc">Professional Windows optimizer. Boost your PC performance safely.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-i18n="footer_links">Links</h4>
+                        <a href="#features" data-i18n="nav_features">Features</a>
+                        <a href="#screenshots" data-i18n="nav_screenshots">Screenshots</a>
+                        <a href="#faq" data-i18n="nav_faq">FAQ</a>
+                        <a href="#download" data-i18n="nav_download">Download</a>
                     </div>
-                    <p>Optimizador profesional de Windows. Mejora el rendimiento de tu PC de forma segura.</p>
-                    <p class="footer-copyright">© 2026 OptimusPC. Todos los derechos reservados.</p>
+                    <div class="footer-column">
+                        <h4 data-i18n="footer_resources">Resources</h4>
+                        <a href="https://github.com/elproelpromaspro123-art/OPTIMIZER" target="_blank">GitHub</a>
+                        <a href="https://github.com/elproelpromaspro123-art/OPTIMIZER/releases" target="_blank">Releases</a>
+                        <a href="https://github.com/elproelpromaspro123-art/OPTIMIZER/issues" target="_blank" data-i18n="footer_report">Report Bug</a>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <h4>Enlaces</h4>
-                    <a href="#features">Características</a>
-                    <a href="#screenshots">Capturas</a>
-                    <a href="#faq">FAQ</a>
-                    <a href="#download">Descargar</a>
-                </div>
-                <div class="footer-links">
-                    <h4>Recursos</h4>
-                    <a href="https://github.com/elproelpromaspro123-art/OPTIMIZER" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <a href="https://github.com/elproelpromaspro123-art/OPTIMIZER/releases" target="_blank" rel="noopener noreferrer">Releases</a>
-                    <a href="https://github.com/elproelpromaspro123-art/OPTIMIZER/issues" target="_blank" rel="noopener noreferrer">Reportar Bug</a>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2026 OptimusPC. <span data-i18n="footer_rights">All rights reserved.</span></p>
+                <div class="footer-social">
+                    <a href="https://github.com/elproelpromaspro123-art/OPTIMIZER" target="_blank" class="social-link" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <script src="i18n.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
