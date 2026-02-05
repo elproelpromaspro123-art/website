@@ -200,4 +200,4 @@ window.addEventListener('resize', () => {
 // ===== Console Easter Egg =====
 console.log('%c🚀 OptimusPC v3.4', 'font-size: 24px; font-weight: bold;');
 console.log('%cOptimize your PC to maximum performance', 'font-size: 14px; color: #888;');
-console.log('%chttps://github.com/elproelpromaspro123-art/OPTIMIZER', 'font-size: 12px; color: #666;');
+
