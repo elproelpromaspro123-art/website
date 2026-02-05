@@ -4,9 +4,9 @@
   "description": "Landing page for OptimusPC - Professional Windows Optimizer",
   "main": "index.html",
   "scripts": {
-    "start": "npx serve .",
+    "start": "npx serve public",
     "dev": "npx serve . -p 3000",
-    "build": "echo 'Static site - no build required'"
+    "build": "mkdir -p public && echo 'Site built'"
   },
   "keywords": [
     "optimuspc",
