@@ -1,14 +1,11 @@
 // ===== Translations =====
-const translations = {
+var translations = {
     en: {
-        // Navigation
         nav_features: "Features",
         nav_screenshots: "Screenshots",
         nav_comparison: "Comparison",
         nav_faq: "FAQ",
         nav_download: "Download Free",
-        
-        // Hero
         hero_badge: "Updated February 2026",
         hero_title_1: "Optimize your PC",
         hero_title_2: "Maximum Performance",
@@ -23,8 +20,6 @@ const translations = {
         trust_instant: "Instant results",
         floating_optimized: "Optimized",
         floating_faster: "2x Faster",
-        
-        // Features
         features_label: "Features",
         features_title: "Everything you need to optimize your PC",
         features_subtitle: "OptimusPC includes professional tools to boost performance, diagnose issues, and protect your system.",
@@ -45,8 +40,6 @@ const translations = {
         feature_7_desc: "Smart hardware suggestions with comparisons and store links.",
         feature_8_title: "Multi-language",
         feature_8_desc: "Interface available in Spanish and English with dark and light themes.",
-        
-        // Screenshots
         screenshots_label: "Gallery",
         screenshots_title: "Modern & Professional Interface",
         screenshots_subtitle: "Intuitive design with dark and light themes. All the information you need, organized.",
@@ -55,24 +48,31 @@ const translations = {
         tab_comparison: "Comparison",
         tab_diagnostics: "Diagnostics",
         tab_backups: "Backups",
-        
-        // Comparison
+        tab_themes: "Themes",
+        slide_dashboard_title: "Real-time Dashboard",
+        slide_dashboard_desc: "Monitor CPU, RAM, GPU and disk usage in real time",
+        slide_optimize_title: "45+ Optimizations",
+        slide_optimize_desc: "Categorized tweaks for gaming, privacy, and performance",
+        slide_diagnostics_title: "Advanced Diagnostics",
+        slide_diagnostics_desc: "Deep analysis of hardware and system health",
+        slide_backups_title: "Automatic Backups",
+        slide_backups_desc: "Restore points before every change",
+        slide_themes_title: "Dark & Light Themes",
+        slide_themes_desc: "Choose your preferred visual style",
         comparison_label: "Results",
-        comparison_title: "Real & Measurable Improvements",
-        comparison_subtitle: "OptimusPC shows real impact of each optimization with verified metrics.",
+        comparison_title: "Real Performance Improvement",
+        comparison_subtitle: "Verified metrics before and after applying optimizations.",
         comp_cpu: "CPU Usage",
         comp_ram: "RAM Usage",
         comp_boot: "Boot Time",
         comp_fps: "Gaming FPS",
         before: "Before",
         after: "After",
-        comp_cpu_result: "20% less idle usage",
+        comp_cpu_result: "30% less CPU usage",
         comp_ram_result: "20% memory freed",
         comp_boot_result: "50% faster startup",
         comp_fps_result: "40% more FPS",
         comparison_disclaimer: "* Results vary based on hardware and system configuration",
-        
-        // FAQ
         faq_title: "Frequently Asked Questions",
         faq_subtitle: "Everything you need to know about OptimusPC",
         faq_1_q: "Is it safe to apply all optimizations?",
@@ -87,8 +87,6 @@ const translations = {
         faq_5_a: "No. OptimusPC only modifies system settings and Windows registry. It never touches your personal files, documents, photos, or installed programs.",
         faq_6_q: "Do I need to run the program regularly?",
         faq_6_a: "Not necessary. Once optimizations are applied, they remain active. You only need to run OptimusPC again after major Windows updates or if you install new software that modifies settings.",
-        
-        // Download
         download_label: "Free Download",
         download_title: "Download OptimusPC",
         download_subtitle: "Optimize your Windows PC in minutes. Portable, no installation required.",
@@ -97,23 +95,16 @@ const translations = {
         spec_system: "System",
         btn_download_exe: "Download OptimusPC.exe",
         download_note: "Requires Administrator permissions to apply optimizations",
-        
-        // Footer
         footer_desc: "Professional Windows optimizer. Boost your PC performance safely.",
         footer_links: "Links",
-        footer_resources: "Resources",
-        footer_report: "Report Bug",
         footer_rights: "All rights reserved."
     },
     es: {
-        // Navigation
         nav_features: "Características",
         nav_screenshots: "Capturas",
         nav_comparison: "Comparativa",
         nav_faq: "FAQ",
         nav_download: "Descargar Gratis",
-        
-        // Hero
         hero_badge: "Actualizado Febrero 2026",
         hero_title_1: "Optimiza tu PC",
         hero_title_2: "Máximo Rendimiento",
@@ -128,8 +119,6 @@ const translations = {
         trust_instant: "Resultados inmediatos",
         floating_optimized: "Optimizado",
         floating_faster: "2x Más Rápido",
-        
-        // Features
         features_label: "Características",
         features_title: "Todo lo que necesitas para optimizar tu PC",
         features_subtitle: "OptimusPC incluye herramientas profesionales para mejorar el rendimiento, diagnosticar problemas y proteger tu sistema.",
@@ -150,8 +139,6 @@ const translations = {
         feature_7_desc: "Sugerencias inteligentes de hardware con comparativas y enlaces a tiendas.",
         feature_8_title: "Multi-idioma",
         feature_8_desc: "Interfaz disponible en Español e Inglés con tema oscuro y claro.",
-        
-        // Screenshots
         screenshots_label: "Galería",
         screenshots_title: "Interfaz Moderna y Profesional",
         screenshots_subtitle: "Diseño intuitivo con tema oscuro y claro. Toda la información que necesitas, organizada.",
@@ -160,24 +147,31 @@ const translations = {
         tab_comparison: "Comparativa",
         tab_diagnostics: "Diagnóstico",
         tab_backups: "Backups",
-        
-        // Comparison
+        tab_themes: "Temas",
+        slide_dashboard_title: "Dashboard en Tiempo Real",
+        slide_dashboard_desc: "Monitorea el uso de CPU, RAM, GPU y disco en tiempo real",
+        slide_optimize_title: "45+ Optimizaciones",
+        slide_optimize_desc: "Ajustes categorizados para gaming, privacidad y rendimiento",
+        slide_diagnostics_title: "Diagnóstico Avanzado",
+        slide_diagnostics_desc: "Análisis profundo de hardware y salud del sistema",
+        slide_backups_title: "Backups Automáticos",
+        slide_backups_desc: "Puntos de restauración antes de cada cambio",
+        slide_themes_title: "Temas Oscuro y Claro",
+        slide_themes_desc: "Elige tu estilo visual preferido",
         comparison_label: "Resultados",
-        comparison_title: "Mejoras Reales y Medibles",
-        comparison_subtitle: "OptimusPC muestra el impacto real de cada optimización con métricas verificadas.",
+        comparison_title: "Mejoras Reales de Rendimiento",
+        comparison_subtitle: "Métricas verificadas antes y después de aplicar optimizaciones.",
         comp_cpu: "Uso de CPU",
         comp_ram: "Uso de RAM",
         comp_boot: "Tiempo de Arranque",
         comp_fps: "FPS en Juegos",
         before: "Antes",
         after: "Después",
-        comp_cpu_result: "20% menos uso en reposo",
+        comp_cpu_result: "30% menos uso de CPU",
         comp_ram_result: "20% memoria liberada",
         comp_boot_result: "50% más rápido",
         comp_fps_result: "40% más FPS",
         comparison_disclaimer: "* Los resultados varían según el hardware y configuración del sistema",
-        
-        // FAQ
         faq_title: "Preguntas Frecuentes",
         faq_subtitle: "Todo lo que necesitas saber sobre OptimusPC",
         faq_1_q: "¿Es seguro aplicar todas las optimizaciones?",
@@ -192,8 +186,6 @@ const translations = {
         faq_5_a: "No. OptimusPC solo modifica configuraciones del sistema y registro de Windows. Nunca toca tus archivos personales, documentos, fotos o programas instalados.",
         faq_6_q: "¿Necesito ejecutar el programa regularmente?",
         faq_6_a: "No es necesario. Una vez aplicadas las optimizaciones, permanecen activas. Solo necesitas volver a ejecutar OptimusPC después de actualizaciones mayores de Windows o si instalas nuevo software que modifique la configuración.",
-        
-        // Download
         download_label: "Descarga Gratis",
         download_title: "Descarga OptimusPC",
         download_subtitle: "Optimiza tu PC Windows en minutos. Portable, sin instalación.",
@@ -202,45 +194,36 @@ const translations = {
         spec_system: "Sistema",
         btn_download_exe: "Descargar OptimusPC.exe",
         download_note: "Requiere permisos de Administrador para aplicar optimizaciones",
-        
-        // Footer
         footer_desc: "Optimizador profesional de Windows. Mejora el rendimiento de tu PC de forma segura.",
         footer_links: "Enlaces",
-        footer_resources: "Recursos",
-        footer_report: "Reportar Bug",
         footer_rights: "Todos los derechos reservados."
     }
 };
 
 // ===== Language Detection & Management =====
-class I18n {
-    constructor() {
+var I18n = (function() {
+    function I18n() {
         this.currentLang = this.detectLanguage();
         this.init();
     }
 
-    detectLanguage() {
-        // Check localStorage first
-        const saved = localStorage.getItem('optimuspc-lang');
+    I18n.prototype.detectLanguage = function() {
+        var saved = localStorage.getItem('optimuspc-lang');
         if (saved && translations[saved]) {
             return saved;
         }
-
-        // Auto-detect from browser
-        const browserLang = navigator.language || navigator.userLanguage;
-        const lang = browserLang.split('-')[0].toLowerCase();
-        
-        // Return detected language or default to English
+        var browserLang = navigator.language || navigator.userLanguage || 'en';
+        var lang = browserLang.split('-')[0].toLowerCase();
         return translations[lang] ? lang : 'en';
-    }
+    };
 
-    init() {
+    I18n.prototype.init = function() {
         this.updateContent();
         this.updateLangButton();
         document.documentElement.lang = this.currentLang;
-    }
+    };
 
-    setLanguage(lang) {
+    I18n.prototype.setLanguage = function(lang) {
         if (translations[lang]) {
             this.currentLang = lang;
             localStorage.setItem('optimuspc-lang', lang);
@@ -248,37 +231,44 @@ class I18n {
             this.updateLangButton();
             document.documentElement.lang = lang;
         }
-    }
+    };
 
-    toggleLanguage() {
-        const newLang = this.currentLang === 'en' ? 'es' : 'en';
+    I18n.prototype.toggleLanguage = function() {
+        var newLang = this.currentLang === 'en' ? 'es' : 'en';
         this.setLanguage(newLang);
-    }
+    };
 
-    updateContent() {
-        const elements = document.querySelectorAll('[data-i18n]');
-        elements.forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (translations[this.currentLang][key]) {
-                el.innerHTML = translations[this.currentLang][key];
+    I18n.prototype.updateContent = function() {
+        var self = this;
+        var elements = document.querySelectorAll('[data-i18n]');
+        for (var i = 0; i < elements.length; i++) {
+            var el = elements[i];
+            var key = el.getAttribute('data-i18n');
+            if (translations[self.currentLang] && translations[self.currentLang][key]) {
+                el.innerHTML = translations[self.currentLang][key];
             }
-        });
-    }
+        }
+    };
 
-    updateLangButton() {
-        const langText = document.getElementById('langText');
+    I18n.prototype.updateLangButton = function() {
+        var langText = document.getElementById('langText');
         if (langText) {
             langText.textContent = this.currentLang.toUpperCase();
         }
-    }
+    };
 
-    t(key) {
-        return translations[this.currentLang][key] || key;
-    }
+    I18n.prototype.t = function(key) {
+        return (translations[this.currentLang] && translations[this.currentLang][key]) || key;
+    };
+
+    return I18n;
+})();
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        window.i18n = new I18n();
+    });
+} else {
+    window.i18n = new I18n();
 }
-
-// Initialize i18n
-const i18n = new I18n();
-
-// Export for global access
-window.i18n = i18n;

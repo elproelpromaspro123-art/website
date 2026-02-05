@@ -1,203 +1,340 @@
-// ===== DOM Elements =====
-const navbar = document.getElementById('navbar');
-const navToggle = document.getElementById('navToggle');
-const navMenu = document.getElementById('navMenu');
-const themeToggle = document.getElementById('themeToggle');
-const themeIcon = document.getElementById('themeIcon');
-const langToggle = document.getElementById('langToggle');
-const heroImage = document.getElementById('heroImage');
-
-// ===== Theme Management =====
-const getPreferredTheme = () => {
-    const saved = localStorage.getItem('optimuspc-theme');
-    if (saved) return saved;
-    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-};
-
-const setTheme = (theme) => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('optimuspc-theme', theme);
-    themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
+// ===== Wait for DOM to be ready =====
+document.addEventListener('DOMContentLoaded', function() {
     
-    // Update hero image based on theme
-    if (heroImage) {
-        heroImage.src = theme === 'dark' ? 'images/theme-dark.png' : 'images/theme-light.png';
+    // ===== DOM Elements =====
+    const navbar = document.getElementById('navbar');
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const langToggle = document.getElementById('langToggle');
+    const heroImage = document.getElementById('heroImage');
+
+    // ===== Theme Management =====
+    function getPreferredTheme() {
+        const saved = localStorage.getItem('optimuspc-theme');
+        if (saved) return saved;
+        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
     }
-};
 
-// Initialize theme
-setTheme(getPreferredTheme());
-
-// Theme toggle handler
-themeToggle.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-theme');
-    setTheme(current === 'dark' ? 'light' : 'dark');
-});
-
-// ===== Language Toggle =====
-langToggle.addEventListener('click', () => {
-    if (window.i18n) {
-        window.i18n.toggleLanguage();
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('optimuspc-theme', theme);
+        if (themeIcon) {
+            themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
+        }
+        if (heroImage) {
+            heroImage.src = theme === 'dark' ? 'images/theme-dark.png' : 'images/theme-light.png';
+        }
     }
-});
 
-// ===== Navbar Scroll Effect =====
-let lastScroll = 0;
+    // Initialize theme
+    setTheme(getPreferredTheme());
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-    
-    lastScroll = currentScroll;
-});
-
-// ===== Mobile Navigation Toggle =====
-navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking a link
-document.querySelectorAll('.nav-link, .nav-btn-primary').forEach(link => {
-    link.addEventListener('click', () => {
-        navToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
-});
-
-// ===== Screenshots Tabs =====
-const screenshotBtns = document.querySelectorAll('.screenshot-nav-btn');
-const screenshotSlides = document.querySelectorAll('.screenshot-slide');
-
-screenshotBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const tab = btn.dataset.tab;
-        
-        // Remove active from all
-        screenshotBtns.forEach(b => b.classList.remove('active'));
-        screenshotSlides.forEach(s => s.classList.remove('active'));
-        
-        // Add active to current
-        btn.classList.add('active');
-        document.querySelector(`[data-slide="${tab}"]`).classList.add('active');
-    });
-});
-
-// ===== FAQ Accordion =====
-const faqItems = document.querySelectorAll('.faq-item');
-
-faqItems.forEach(item => {
-    const trigger = item.querySelector('.faq-trigger');
-    
-    trigger.addEventListener('click', () => {
-        // Close others
-        faqItems.forEach(i => {
-            if (i !== item) i.classList.remove('active');
+    // Theme toggle handler
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            const current = document.documentElement.getAttribute('data-theme');
+            setTheme(current === 'dark' ? 'light' : 'dark');
         });
-        
-        // Toggle current
-        item.classList.toggle('active');
-    });
-});
+    }
 
-// ===== Smooth Scroll =====
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    // ===== Language Toggle =====
+    if (langToggle) {
+        langToggle.addEventListener('click', function() {
+            if (window.i18n && typeof window.i18n.toggleLanguage === 'function') {
+                window.i18n.toggleLanguage();
+            }
+        });
+    }
+
+    // ===== Navbar Scroll Effect =====
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (navbar) {
+            if (currentScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+    });
+
+    // ===== Mobile Navigation Toggle =====
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.classList.toggle('nav-open');
+        });
+    }
+
+    // Close mobile menu when clicking a link
+    var navLinks = document.querySelectorAll('.nav-link, .nav-btn-primary');
+    for (var i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener('click', function() {
+            if (navToggle) navToggle.classList.remove('active');
+            if (navMenu) navMenu.classList.remove('active');
+            document.body.classList.remove('nav-open');
+        });
+    }
+
+    // ===== Screenshots Tabs =====
+    var screenshotBtns = document.querySelectorAll('.screenshot-nav-btn');
+    var screenshotSlides = document.querySelectorAll('.screenshot-slide');
+
+    for (var j = 0; j < screenshotBtns.length; j++) {
+        screenshotBtns[j].addEventListener('click', function() {
+            var tab = this.getAttribute('data-tab');
+            
+            // Remove active from all buttons
+            for (var k = 0; k < screenshotBtns.length; k++) {
+                screenshotBtns[k].classList.remove('active');
+            }
+            
+            // Remove active from all slides
+            for (var l = 0; l < screenshotSlides.length; l++) {
+                screenshotSlides[l].classList.remove('active');
+            }
+            
+            // Add active to clicked button
+            this.classList.add('active');
+            
+            // Add active to corresponding slide
+            var targetSlide = document.querySelector('[data-slide="' + tab + '"]');
+            if (targetSlide) {
+                targetSlide.classList.add('active');
+            }
+        });
+    }
+
+    // ===== FAQ Accordion =====
+    var faqItems = document.querySelectorAll('.faq-item');
+
+    for (var m = 0; m < faqItems.length; m++) {
+        var trigger = faqItems[m].querySelector('.faq-trigger');
+        
+        if (trigger) {
+            (function(item) {
+                trigger.addEventListener('click', function() {
+                    // Close others
+                    for (var n = 0; n < faqItems.length; n++) {
+                        if (faqItems[n] !== item) {
+                            faqItems[n].classList.remove('active');
+                        }
+                    }
+                    // Toggle current
+                    item.classList.toggle('active');
+                });
+            })(faqItems[m]);
+        }
+    }
+
+    // ===== Smooth Scroll =====
+    var anchors = document.querySelectorAll('a[href^="#"]');
+    for (var o = 0; o < anchors.length; o++) {
+        anchors[o].addEventListener('click', function(e) {
+            var href = this.getAttribute('href');
+            if (href === '#' || href === '') return;
+            
+            var target = document.querySelector(href);
+            
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
+    // ===== Intersection Observer for Animations =====
+    if ('IntersectionObserver' in window) {
+        var observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        var animateOnScroll = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    animateOnScroll.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Apply to animatable elements
+        var animatables = document.querySelectorAll('.feature-card, .comparison-card, .faq-item, .screenshot-slide');
+        for (var p = 0; p < animatables.length; p++) {
+            animatables[p].classList.add('animate-ready');
+            animateOnScroll.observe(animatables[p]);
+        }
+
+        // ===== Comparison Bars Animation =====
+        var barsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-bars');
+                    barsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        var comparisonCards = document.querySelectorAll('.comparison-card');
+        for (var q = 0; q < comparisonCards.length; q++) {
+            barsObserver.observe(comparisonCards[q]);
+        }
+    }
+
+    // ===== Handle Window Resize =====
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            if (window.innerWidth > 768) {
+                if (navToggle) navToggle.classList.remove('active');
+                if (navMenu) navMenu.classList.remove('active');
+                document.body.classList.remove('nav-open');
+            }
+        }, 250);
+    });
+
+    // ===== Feedback Modal System =====
+    const feedbackModal = document.getElementById('feedbackModal');
+    const feedbackBtnFooter = document.getElementById('feedbackBtnFooter');
+    const floatingFeedbackBtn = document.getElementById('floatingFeedbackBtn');
+    const closeFeedbackBtn = document.getElementById('closeFeedbackBtn');
+    const cancelFeedbackBtn = document.getElementById('cancelFeedbackBtn');
+    const feedbackForm = document.getElementById('feedbackForm');
+    const submitFeedbackBtn = document.getElementById('submitFeedbackBtn');
+    const feedbackStatus = document.getElementById('feedbackStatus');
+
+    // Discord Webhook URL
+    const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1469066793669759098/DtBxho4OqUjkoREsZofMIZu0gCif0EtOwOBzw4WYkTes6bCtX5kAWY92kLHymSpglCKu';
+
+    function openFeedbackModal() {
+        if (feedbackModal) {
+            feedbackModal.classList.remove('hidden');
+        }
+    }
+
+    function closeFeedbackModal() {
+        if (feedbackModal) {
+            feedbackModal.classList.add('hidden');
+            feedbackForm.reset();
+            feedbackStatus.textContent = '';
+            feedbackStatus.className = 'feedback-status';
+        }
+    }
+
+    function showFeedbackStatus(message, type = 'success') {
+        if (feedbackStatus) {
+            feedbackStatus.textContent = message;
+            feedbackStatus.className = `feedback-status ${type}`;
+        }
+    }
+
+    async function submitFeedback(e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+
+        const message = document.getElementById('feedbackMessage').value.trim();
+        const email = document.getElementById('feedbackEmail').value.trim();
+        const type = document.getElementById('feedbackType').value;
+
+        if (!message) {
+            showFeedbackStatus('Please enter your message', 'error');
+            return;
+        }
+
+        submitFeedbackBtn.disabled = true;
+        showFeedbackStatus('Sending your feedback...', 'loading');
+
+        try {
+            const embed = {
+                title: `📨 New ${type === 'bug' ? '🐛 Bug Report' : type === 'feature' ? '⭐ Feature Request' : type === 'suggestion' ? '💡 Suggestion' : '💬 Feedback'}`,
+                description: message,
+                color: type === 'bug' ? 0xEF4444 : type === 'feature' ? 0xF59E0B : type === 'suggestion' ? 0x22C55E : 0x6496FF,
+                fields: [
+                    {
+                        name: 'Type',
+                        value: type.charAt(0).toUpperCase() + type.slice(1),
+                        inline: true
+                    },
+                    {
+                        name: 'Contact Email',
+                        value: email || 'Not provided',
+                        inline: true
+                    },
+                    {
+                        name: 'Timestamp',
+                        value: new Date().toISOString(),
+                        inline: false
+                    }
+                ],
+                footer: {
+                    text: 'OptimusPC Feedback System'
+                }
+            };
+
+            const response = await fetch(DISCORD_WEBHOOK_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    embeds: [embed]
+                })
             });
+
+            if (response.ok || response.status === 204) {
+                showFeedbackStatus('✅ Thank you! Your feedback has been received and will be reviewed by our team.', 'success');
+                setTimeout(closeFeedbackModal, 2500);
+            } else {
+                throw new Error('Failed to send feedback');
+            }
+        } catch (error) {
+            console.error('Feedback submission error:', error);
+            showFeedbackStatus('❌ Error sending feedback. Please try again later.', 'error');
+        } finally {
+            submitFeedbackBtn.disabled = false;
         }
-    });
+    }
+
+    // Event Listeners
+    if (feedbackBtnFooter) {
+        feedbackBtnFooter.addEventListener('click', openFeedbackModal);
+    }
+
+    if (floatingFeedbackBtn) {
+        floatingFeedbackBtn.addEventListener('click', openFeedbackModal);
+    }
+
+    if (closeFeedbackBtn) {
+        closeFeedbackBtn.addEventListener('click', closeFeedbackModal);
+    }
+
+    if (cancelFeedbackBtn) {
+        cancelFeedbackBtn.addEventListener('click', closeFeedbackModal);
+    }
+
+    if (feedbackModal) {
+        feedbackModal.addEventListener('click', (e) => {
+            if (e.target === feedbackModal) {
+                closeFeedbackModal();
+            }
+        });
+    }
+
+    if (feedbackForm) {
+        feedbackForm.addEventListener('submit', submitFeedback);
+    }
+
+    // ===== Console Easter Egg =====
+    console.log('%c🚀 OptimusPC v3.4', 'font-size: 24px; font-weight: bold;');
+    console.log('%cOptimize your PC to maximum performance', 'font-size: 14px; color: #888;');
+
 });
-
-// ===== Intersection Observer for Animations =====
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
-
-const animateOnScroll = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            animateOnScroll.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Apply to animatable elements
-document.querySelectorAll('.feature-card, .comparison-card, .faq-item').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    animateOnScroll.observe(el);
-});
-
-// ===== Comparison Bars Animation =====
-const barsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const bars = entry.target.querySelectorAll('.bar-fill');
-            bars.forEach((bar, index) => {
-                setTimeout(() => {
-                    bar.style.width = bar.style.getPropertyValue('--value');
-                }, index * 200);
-            });
-            barsObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.3 });
-
-document.querySelectorAll('.comparison-card').forEach(card => {
-    const bars = card.querySelectorAll('.bar-fill');
-    bars.forEach(bar => {
-        bar.style.width = '0';
-    });
-    barsObserver.observe(card);
-});
-
-// ===== Stagger Animation for Grids =====
-const staggerObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const children = entry.target.children;
-            Array.from(children).forEach((child, index) => {
-                child.style.transitionDelay = `${index * 0.08}s`;
-            });
-            staggerObserver.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.features-grid, .comparison-grid').forEach(grid => {
-    staggerObserver.observe(grid);
-});
-
-// ===== Handle Window Resize =====
-let resizeTimer;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-        if (window.innerWidth > 768) {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-        }
-    }, 250);
-});
-
-// ===== Console Easter Egg =====
-console.log('%c🚀 OptimusPC v3.4', 'font-size: 24px; font-weight: bold;');
-console.log('%cOptimize your PC to maximum performance', 'font-size: 14px; color: #888;');
-

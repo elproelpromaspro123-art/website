@@ -2,10 +2,11 @@
 <html lang="es" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="OptimusPC v3.4 - Professional Windows 10/11 Optimizer. Boost your PC performance with 45+ optimizations, advanced diagnostics, and secure backups.">
     <meta name="keywords" content="windows optimizer, improve pc performance, optimize windows 11, optimize windows 10, gaming optimizer, pc booster">
     <meta name="author" content="OptimusPC">
+    <meta name="theme-color" content="#000000">
     <meta property="og:title" content="OptimusPC - Professional Windows Optimizer">
     <meta property="og:description" content="Boost your PC performance with 45+ optimizations, advanced diagnostics, and secure backups.">
     <meta property="og:type" content="website">
@@ -13,7 +14,7 @@
     <title>OptimusPC v3.4 - Professional Windows Optimizer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
 </head>
@@ -128,7 +129,6 @@
                 <div class="hero-image-container">
                     <div class="hero-image-glow"></div>
                     <img src="images/theme-dark.png" alt="OptimusPC Dashboard" class="hero-image" id="heroImage" loading="eager">
-                    <div class="hero-image-reflection"></div>
                 </div>
                 <div class="floating-card floating-card-1">
                     <span class="floating-icon">⚡</span>
@@ -246,10 +246,6 @@
                         <span class="nav-icon">⚡</span>
                         <span data-i18n="tab_optimize">Optimize</span>
                     </button>
-                    <button class="screenshot-nav-btn" data-tab="comparison">
-                        <span class="nav-icon">📈</span>
-                        <span data-i18n="tab_comparison">Comparison</span>
-                    </button>
                     <button class="screenshot-nav-btn" data-tab="diagnostics">
                         <span class="nav-icon">🛡️</span>
                         <span data-i18n="tab_diagnostics">Diagnostics</span>
@@ -258,22 +254,56 @@
                         <span class="nav-icon">💾</span>
                         <span data-i18n="tab_backups">Backups</span>
                     </button>
+                    <button class="screenshot-nav-btn" data-tab="themes">
+                        <span class="nav-icon">🎨</span>
+                        <span data-i18n="tab_themes">Themes</span>
+                    </button>
                 </div>
                 <div class="screenshots-display">
                     <div class="screenshot-slide active" data-slide="dashboard">
-                        <img src="images/dashboard.png" alt="Dashboard" loading="lazy">
+                        <div class="screenshot-image-wrapper">
+                            <img src="images/dashboard.png" alt="Dashboard" class="screenshot-image" loading="lazy">
+                        </div>
+                        <div class="screenshot-caption">
+                            <h3 data-i18n="slide_dashboard_title">Real-time Dashboard</h3>
+                            <p data-i18n="slide_dashboard_desc">Monitor CPU, RAM, GPU and disk usage in real time</p>
+                        </div>
                     </div>
                     <div class="screenshot-slide" data-slide="optimize">
-                        <img src="images/optimize.png" alt="Optimize" loading="lazy">
-                    </div>
-                    <div class="screenshot-slide" data-slide="comparison">
-                        <img src="images/comparison.png" alt="Comparison" loading="lazy">
+                        <div class="screenshot-image-wrapper">
+                            <img src="images/optimize.png" alt="Optimize" class="screenshot-image" loading="lazy">
+                        </div>
+                        <div class="screenshot-caption">
+                            <h3 data-i18n="slide_optimize_title">45+ Optimizations</h3>
+                            <p data-i18n="slide_optimize_desc">Categorized tweaks for gaming, privacy, and performance</p>
+                        </div>
                     </div>
                     <div class="screenshot-slide" data-slide="diagnostics">
-                        <img src="images/diagnostics.png" alt="Diagnostics" loading="lazy">
+                        <div class="screenshot-image-wrapper">
+                            <img src="images/diagnostics.png" alt="Diagnostics" class="screenshot-image" loading="lazy">
+                        </div>
+                        <div class="screenshot-caption">
+                            <h3 data-i18n="slide_diagnostics_title">Advanced Diagnostics</h3>
+                            <p data-i18n="slide_diagnostics_desc">Deep analysis of hardware and system health</p>
+                        </div>
                     </div>
                     <div class="screenshot-slide" data-slide="backups">
-                        <img src="images/backups.png" alt="Backups" loading="lazy">
+                        <div class="screenshot-image-wrapper">
+                            <img src="images/backups.png" alt="Backups" class="screenshot-image" loading="lazy">
+                        </div>
+                        <div class="screenshot-caption">
+                            <h3 data-i18n="slide_backups_title">Automatic Backups</h3>
+                            <p data-i18n="slide_backups_desc">Restore points before every change</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-slide" data-slide="themes">
+                        <div class="screenshot-image-wrapper">
+                            <img src="images/theme-dark.png" alt="Themes" class="screenshot-image" loading="lazy">
+                        </div>
+                        <div class="screenshot-caption">
+                            <h3 data-i18n="slide_themes_title">Dark & Light Themes</h3>
+                            <p data-i18n="slide_themes_desc">Choose your preferred visual style</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -285,8 +315,8 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-label" data-i18n="comparison_label">Results</span>
-                <h2 class="section-title" data-i18n="comparison_title">Real & Measurable Improvements</h2>
-                <p class="section-subtitle" data-i18n="comparison_subtitle">OptimusPC shows real impact of each optimization with verified metrics.</p>
+                <h2 class="section-title" data-i18n="comparison_title">Real Performance Improvement</h2>
+                <p class="section-subtitle" data-i18n="comparison_subtitle">Verified metrics before and after applying optimizations.</p>
             </div>
             <div class="comparison-grid">
                 <div class="comparison-card">
@@ -296,21 +326,21 @@
                     </div>
                     <div class="comparison-chart">
                         <div class="chart-bar">
-                            <div class="bar-fill bar-before" style="--value: 45%">
+                            <div class="bar-fill bar-before" style="--value: 65%">
                                 <span class="bar-label" data-i18n="before">Before</span>
-                                <span class="bar-value">45%</span>
+                                <span class="bar-value">65%</span>
                             </div>
                         </div>
                         <div class="chart-bar">
-                            <div class="bar-fill bar-after" style="--value: 25%">
+                            <div class="bar-fill bar-after" style="--value: 35%">
                                 <span class="bar-label" data-i18n="after">After</span>
-                                <span class="bar-value">25%</span>
+                                <span class="bar-value">35%</span>
                             </div>
                         </div>
                     </div>
                     <div class="comparison-result">
                         <span class="result-arrow">↓</span>
-                        <span data-i18n="comp_cpu_result">20% less idle usage</span>
+                        <span data-i18n="comp_cpu_result">30% less CPU usage</span>
                     </div>
                 </div>
                 <div class="comparison-card">
@@ -503,7 +533,7 @@
                         </div>
                     </div>
 
-                    <a href="OptimusPC.exe" class="btn btn-download" download="OptimusPC.exe">
+                    <a href="OptimusPC.exe" class="btn-download" download="OptimusPC.exe">
                         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                             <polyline points="7 10 12 15 17 10"/>
@@ -520,12 +550,6 @@
                         </svg>
                         <span data-i18n="download_note">Requires Administrator permissions to apply optimizations</span>
                     </p>
-                </div>
-                <div class="download-visual">
-                    <div class="download-rocket">🚀</div>
-                    <div class="download-particles">
-                        <span></span><span></span><span></span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -550,21 +574,61 @@
                         <a href="#faq" data-i18n="nav_faq">FAQ</a>
                         <a href="#download" data-i18n="nav_download">Download</a>
                     </div>
-
                 </div>
             </div>
             <div class="footer-bottom">
                 <p class="footer-copyright">© 2026 OptimusPC. <span data-i18n="footer_rights">All rights reserved.</span></p>
                 <div class="footer-social">
-                    <a href="https://github.com/elproelpromaspro123-art/OPTIMIZER" target="_blank" class="social-link" aria-label="GitHub">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                    </a>
+                    <button class="social-link" id="feedbackBtnFooter" aria-label="Send Feedback" title="Send us your feedback">
+                        <span style="font-size: 20px;">❓</span>
+                    </button>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Floating Feedback Button -->
+    <button id="floatingFeedbackBtn" class="floating-feedback-btn" title="Send us your feedback">
+       <span class="floating-icon">❓</span>
+       <span class="floating-label">Feedback</span>
+    </button>
+
+    <!-- Feedback Modal -->
+    <div id="feedbackModal" class="feedback-modal-overlay hidden">
+        <div class="feedback-modal">
+            <div class="feedback-modal-header">
+                <h2>💬 Send us your feedback</h2>
+                <button class="feedback-modal-close" id="closeFeedbackBtn">✕</button>
+            </div>
+            <div class="feedback-modal-content">
+                <form id="feedbackForm">
+                    <div class="feedback-form-group">
+                        <label for="feedbackMessage">Your Message *</label>
+                        <textarea id="feedbackMessage" name="message" placeholder="Tell us what you think about OptimusPC..." required rows="5"></textarea>
+                    </div>
+                    <div class="feedback-form-group">
+                        <label for="feedbackEmail">Email (Optional)</label>
+                        <input type="email" id="feedbackEmail" name="email" placeholder="your@email.com">
+                        <small>We'll contact you about your feedback</small>
+                    </div>
+                    <div class="feedback-form-group">
+                        <label for="feedbackType">Feedback Type</label>
+                        <select id="feedbackType" name="type">
+                            <option value="suggestion">💡 Suggestion</option>
+                            <option value="bug">🐛 Bug Report</option>
+                            <option value="feature">⭐ Feature Request</option>
+                            <option value="general">💬 General Feedback</option>
+                        </select>
+                    </div>
+                    <div class="feedback-form-actions">
+                        <button type="button" class="btn-feedback btn-cancel" id="cancelFeedbackBtn">Cancel</button>
+                        <button type="submit" class="btn-feedback btn-submit" id="submitFeedbackBtn">Send Feedback</button>
+                    </div>
+                    <div class="feedback-status" id="feedbackStatus"></div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script src="i18n.js"></script>
     <script src="script.js"></script>
